@@ -1,6 +1,6 @@
 {
-  "name": "luminescent-website",
-  "description": "Luminescent Development",
+  "name": "sab-website",
+  "description": "welcome to sab's website idk",
   "engines": {
     "node": ">=15.0.0"
   },

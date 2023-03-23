@@ -1,7 +1,7 @@
 import { component$ } from '@builder.io/qwik';
 import { Link } from '@builder.io/qwik-city';
 
-import { GitPullRequestIcon, FileTextIcon, GithubIcon, MenuIcon } from "qwik-feather-icons";
+import { GitPullRequestIcon, FileTextIcon, MoreHorizontalIcon, GithubIcon, DollarSignIcon, MenuIcon } from "qwik-feather-icons";
 
 export default component$(() => {
   return (
@@ -10,20 +10,23 @@ export default component$(() => {
         <div class="relative flex h-16 items-center justify-between">
           <div class="flex flex-1 items-center justify-start">
             <Link href="/" class="transition duration-200 pointer-events-auto text-gray-300 bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-900 hover:border-gray-700 pl-3 pr-4 py-2 rounded-lg text-lg flex items-center whitespace-nowrap">
-              <img class="h-8 w-8 rounded-md" src="https://avatars.githubusercontent.com/u/86643576" alt="LuminescentDev" />
-              <span class="font-bold ml-4">luminescent.dev</span>
+              <img class="h-8 w-8 rounded-md" src="https://avatars.githubusercontent.com/u/42164502" alt="sab's pfp" />
+              <span class="font-bold ml-4">sab</span>
             </Link>
           </div>
           <div class="flex flex-1 items-center justify-end">
             <div class="pointer-events-auto flex gap-2 text-gray-300 whitespace-nowrap">
-              <Link href="/forks" class="transition duration-200 hidden bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-900 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold md:flex items-center gap-4">
-                <GitPullRequestIcon/>Fork Graph
-              </Link>
               <Link href="/resume" class="transition duration-200 hidden bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-900 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold sm:flex items-center gap-4">
                 <FileTextIcon/>Resume
               </Link>
-              <Link href="https://github.com/LuminescentDev" class="transition duration-200 hidden bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-900 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold sm:flex items-center gap-4">
+              <Link href="https://github.com/saboooor" class="transition duration-200 hidden bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-900 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold sm:flex items-center gap-4">
                 <GithubIcon/>GitHub
+              </Link>
+              <Link href="https://paypal.me/youhavebeenyoted" class="transition duration-200 hidden bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-900 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold sm:flex items-center gap-4">
+                <DollarSignIcon/>PayPal
+              </Link>
+              <Link href="/zoo" class="transition duration-200 hidden bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-900 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold lg:flex items-center gap-4">
+                <MoreHorizontalIcon/>Zoo
               </Link>
               <button id="mobile-menu-button" onClick$={() => document.getElementById('mobile-menu')?.classList.toggle("hidden")} class="transition duration-200 bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-900 hover:border-gray-700 px-2 py-2 rounded-lg text-md font-bold flex">
                 <MenuIcon/>
@@ -39,11 +42,17 @@ export default component$(() => {
           <Link href="/resume" class="transition duration-200 flex sm:hidden hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
             <FileTextIcon/>Resume
           </Link>
-          <Link href="https://github.com/LuminescentDev" class="transition duration-200 flex sm:hidden hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
+          <Link href="https://github.com/saboooor" class="transition duration-200 flex sm:hidden hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
             <GithubIcon/>GitHub
           </Link>
-          <Link href="https://cactie.luminescent.dev" class="transition duration-200 flex hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
-            <img class="h-6 w-6 rounded-xl" src={`https://cactie.luminescent.dev/assets/images/Cactie.webp`} alt="Cactie Bot" />
+          <Link href="https://paypal.me/youhavebeenyoted" class="transition duration-200 flex sm:hidden hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
+            <DollarSignIcon/>PayPal
+          </Link>
+          <Link href="/zoo" class="transition duration-200 flex lg:hidden hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
+            <MoreHorizontalIcon/>Zoo
+          </Link>
+          <Link href="https://cactie.smhsmh.club" class="transition duration-200 flex hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
+            <img class="h-6 w-6 rounded-xl" src={`https://cactie.smhsmh.club/assets/images/Cactie.webp`} alt="Cactie Bot" />
             Cactie
           </Link>
           <Link href="https://netherdepths.com" class="transition duration-200 flex hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
