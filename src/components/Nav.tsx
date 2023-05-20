@@ -1,68 +1,128 @@
-import { component$ } from '@builder.io/qwik';
-import { Link } from '@builder.io/qwik-city';
+import { component$, $, Slot } from '@builder.io/qwik';
+import { Link, useLocation } from '@builder.io/qwik-city';
 
-import { GitPullRequestIcon, FileTextIcon, GithubIcon, DollarSignIcon, MenuIcon } from "qwik-feather-icons";
+import { LogoDiscord, LogoGithub, DocumentOutline, Menu, CafeOutline, LogoPaypal } from 'qwik-ionicons';
+
+import Luminescent from './icons/Luminescent';
+import LoadingIcon from './icons/LoadingIcon';
 
 export default component$(() => {
   return (
-    <nav class="z-20 fixed top-0 w-screen my-3 pointer-events-none drop-shadow-lg">
-      <div class="mx-auto max-w-7xl px-4 lg:px-6">
-        <div class="relative flex h-16 items-center justify-between">
-          <div class="flex flex-1 items-center justify-start">
-            <Link href="/" class="transition duration-200 pointer-events-auto text-gray-300 bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-900 hover:border-gray-700 pl-3 pr-4 py-2 rounded-lg text-lg flex items-center whitespace-nowrap">
-              <img class="h-8 w-8 rounded-md" src="https://avatars.githubusercontent.com/u/42164502" alt="sab's pfp" />
-              <span class="font-bold ml-4">sab</span>
-            </Link>
-          </div>
-          <div class="flex flex-1 items-center justify-end">
-            <div class="pointer-events-auto flex gap-2 text-gray-300 whitespace-nowrap">
-              <Link href="/resume" class="transition duration-200 hidden bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-900 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold sm:flex items-center gap-4">
-                <FileTextIcon/>Resume
-              </Link>
-              <Link href="https://github.com/saboooor" class="transition duration-200 hidden bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-900 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold sm:flex items-center gap-4">
-                <GithubIcon/>GitHub
-              </Link>
-              <Link href="https://paypal.me/youhavebeenyoted" class="transition duration-200 hidden bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-900 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold sm:flex items-center gap-4">
-                <DollarSignIcon/>PayPal
-              </Link>
-              <button id="mobile-menu-button" onClick$={() => document.getElementById('mobile-menu')?.classList.toggle("hidden")} class="transition duration-200 bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-900 hover:border-gray-700 px-2 py-2 rounded-lg text-md font-bold flex">
-                <MenuIcon/>
-              </button>
+    <Nav>
+        <MainNav>
+          <NavButton href="/resume" extraClass="hidden xl:flex gap-3">
+            <DocumentOutline width="24" class="fill-green-100" />
+            Resume
+          </NavButton>
+          <NavButton external icon href="https://github.com/LuminescentDev/SimplyMC" title="GitHub" extraClass="hidden xl:flex">
+            <LogoGithub width="24" class="fill-green-100" />
+          </NavButton>
+          <NavButton external icon href="https://discord.simplymc.art" title="Discord" extraClass="hidden xl:flex">
+            <LogoDiscord width="24" class="fill-indigo-200" />
+          </NavButton>
+          <NavButton external icon href="https://paypal.me/youhavebeenyoted" title="PayPal" extraClass="hidden xl:flex">
+            <LogoPaypal width="24" class="fill-pink-200 text-pink-200" />
+          </NavButton>
+          <NavButton external icon href="https://luminescent.dev" title="Luminescent" extraClass="hidden xl:flex justify-center w-10 h-10">
+            <div style={{ filter: 'drop-shadow(0 0 0 #DD6CFF)' }}>
+              <div style={{ filter: 'drop-shadow(0 0 1rem #CB6CE6)' }} class="w-10 h-10">
+                <Luminescent/>
+              </div>
             </div>
+          </NavButton>
+          <button id="mobile-menu-button" type="button" title="Menu" onClick$={() => {
+            const classList = document.getElementById('mobile-menu')?.classList;
+            if (classList?.contains('hidden')) classList.replace('hidden', 'flex');
+            else classList?.replace('flex', 'hidden');
+          }} class="transition ease-in-out hover:bg-gray-800 hover:text-white p-2 rounded-lg text-3xl xl:hidden">
+            <Menu width="24" />
+          </button>
+        </MainNav>
+        <MobileNav>
+          <NavButton href="/resume" extraClass="hidden xl:flex gap-3">
+            <DocumentOutline width="24" class="fill-green-100" />
+            Resume
+          </NavButton>
+          <div class="flex justify-evenly">
+            <NavButton external mobile icon href="https://github.com/LuminescentDev/SimplyMC" title="GitHub" extraClass="flex xl:hidden">
+              <LogoGithub width="24" class="fill-green-100" />
+            </NavButton>
+            <NavButton external mobile icon href="https://discord.simplymc.art" title="Discord" extraClass="flex xl:hidden">
+              <LogoDiscord width="24" class="fill-indigo-200" />
+            </NavButton>
+            <NavButton external mobile icon href="https://paypal.me/youhavebeenyoted" title="PayPal" extraClass="flex xl:hidden">
+              <LogoPaypal width="24" class="fill-pink-200 text-pink-200" />
+            </NavButton>
+            <NavButton external mobile icon href="https://luminescent.dev" title="Luminescent" extraClass="flex xl:hidden justify-center w-10 h-10">
+              <div style={{ filter: 'drop-shadow(0 0 0 #DD6CFF)' }}>
+                <div style={{ filter: 'drop-shadow(0 0 1rem #CB6CE6)' }} class="w-10 h-10">
+                  <Luminescent/>
+                </div>
+              </div>
+            </NavButton>
           </div>
-        </div>
+        </MobileNav>
+    </Nav>
+  );
+});
 
-        <div id="mobile-menu" class="pointer-events-auto space-y-1 py-4 px-3 justify-center items-center bg-gray-800 rounded-lg border-2 border-gray-700 mt-2 hidden">
-          <Link href="/forks" class="transition duration-200 flex md:hidden hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
-            <GitPullRequestIcon/>Fork Graph
-          </Link>
-          <Link href="/resume" class="transition duration-200 flex sm:hidden hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
-            <FileTextIcon/>Resume
-          </Link>
-          <Link href="https://github.com/saboooor" class="transition duration-200 flex sm:hidden hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
-            <GithubIcon/>GitHub
-          </Link>
-          <Link href="https://paypal.me/youhavebeenyoted" class="transition duration-200 flex sm:hidden hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
-            <DollarSignIcon/>PayPal
-          </Link>
-          <Link href="https://cactie.luminescent.dev" class="transition duration-200 flex hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
-            <img class="h-6 w-6 rounded-xl" src={`https://cactie.luminescent.dev/assets/images/Cactie.webp`} alt="Cactie Bot" />
-            Cactie
-          </Link>
-          <Link href="https://netherdepths.com" class="transition duration-200 flex hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
-            <img class="h-6 w-6 rounded-xl" src={`https://raw.githubusercontent.com/saboooor/Nether-Depths/main/Branding/nd.png`} alt="Cactie Bot" />
-            Nether Depths
-          </Link>
-          <Link href="https://simplymc.art" class="transition duration-200 flex hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
-            <img class="h-6 w-6 rounded-xl" src={`https://www.simplymc.art/icon-192x192.png`} alt="Cactie Bot" />
-            SimplyMC
-          </Link>
-          <Link href="https://github.com/pemigrade/botflop" class="transition duration-200 flex hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
-            <img class="h-6 w-6 rounded-xl" src={`https://i.imgur.com/deE1oID.png`} alt="Cactie Bot" />
-            Botflop
-          </Link>
-        </div>
+export const Nav = component$(() => {
+  return (
+    <nav class="z-20 fixed top-0 w-screen py-2 bg-gray-900/70 backdrop-blur-xl">
+      <div class="mx-auto max-w-7xl px-4 lg:px-6">
+        <Slot />
       </div>
     </nav>
   );
+});
+
+export const Brand = component$(() => {
+  const location = useLocation();
+  return (
+    <div class="flex items-center justify-start">
+      <Link href="/" class="transition ease-in-out text-gray-300 hover:bg-gray-800 hover:text-white drop-shadow-2xl px-2 py-2 rounded-lg text-lg flex gap-3 items-center whitespace-nowrap">
+        <img class="h-8 w-8 rounded-md" src="https://avatars.githubusercontent.com/u/42164502" alt="sab's pfp" />
+        <span class="font-bold">Sab's Portfolio</span>
+        <div class={`${location.isNavigating ? '-ml-2' : '-ml-10 opacity-0'} transition-all`}>
+          <LoadingIcon/>
+        </div>
+      </Link>
+    </div>
+  );
+});
+
+export const MainNav = component$(() => {
+  return (
+    <div class="relative flex h-16 items-center justify-between">
+      <Brand/>
+      <div class="flex flex-1 items-center justify-end">
+        <div class="flex gap-2 text-gray-300 whitespace-nowrap">
+          <Slot/>
+        </div>
+      </div>
+    </div>
+  );
+});
+
+export const MobileNav = component$(() => {
+  return (
+    <div id="mobile-menu" class="gap-4 py-4 px-3 bg-black rounded-lg mt-2 hidden flex-col xl:hidden">
+      <Slot />
+    </div>
+  );
+});
+
+export const NavButton = component$(({ href, title, icon, external, extraClass, style }: any) => {
+  return <>
+    {external &&
+      <a href={href} title={title} style={style} class={`group transition ease-in-out hover:bg-gray-800 hover:text-white ${icon ? 'text-3xl px-2' : 'px-4'} py-2 rounded-lg items-center ${extraClass}`}>
+        <Slot />
+      </a>
+    }
+    {!external &&
+      <Link href={href} onClick$={async () => { document.getElementById('mobile-menu')?.classList.replace('flex', 'hidden'); }} title={title} style={style} class={`group transition ease-in-out hover:bg-gray-800 hover:text-white ${icon ? 'text-3xl px-2' : 'px-4'} py-2 rounded-lg items-center ${extraClass}`}>
+        <Slot />
+      </Link>
+    }
+  </>;
 });

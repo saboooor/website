@@ -18,7 +18,7 @@ export default component$(() => {
           EXPERIENCE
         </h1>
         <p class="mt-5 text-lg text-gray-400">
-          <span class="font-bold">Website Developer</span> — <Link href="https://burgersonfleek.ca">burgersonfleek.ca</Link><br/>
+          <span class="font-bold">Web Developer</span> — <Link href="https://burgersonfleek.ca">burgersonfleek.ca</Link><br/>
           Nov 2020 - Present<br/>
           Single-handedly created the website with Qwik and TailwindCSS and deployed to Cloudflare Pages
         </p>
@@ -40,7 +40,7 @@ export default component$(() => {
         </p>
         <p class="mt-5 text-lg text-gray-400">
           <span class="font-bold">Culinary Arts</span> — NAIT<br/>
-          Jan 2023 - Present
+          Jan 2023 - Apr 2023 / Sept 2023 - Apr 2023
         </p>
       </div>
       <div class="justify-end">
@@ -63,7 +63,7 @@ export default component$(() => {
           <span class="font-bold">
             NAIT Food Safety Certificate
           </span><br/>
-          Mar 2, 2023
+          Mar 13, 2023
         </p>
         <h1 class="mt-10 font-bold text-white text-2xl">
           LANGUAGES

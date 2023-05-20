@@ -17,10 +17,10 @@ export default component$(() => {
           I'm a Culinary student with a passion for cooking various foods and working in fast paced environments and self-taught full-stack software developer with an equal passion for technology.
         </p>
         <div class="grid sm:flex gap-3 pt-4">
-          <Link href="/resume" class="flex justify-center sm:justify-start transition duration-200 rounded-2xl shadow-lg backdrop-blur-lg bg-purple-900/80 hover:bg-purple-900 border-2 border-purple-900 px-6 py-3 font-bold text-purple-100 md:py-4 md:px-8 text-sm md:text-lg whitespace-nowrap gap-4 items-center">
+          <Link href="/resume" class="flex justify-center sm:justify-start transition rounded-2xl shadow-lg backdrop-blur-lg bg-purple-900/80 hover:bg-purple-900 border border-purple-900 px-6 py-3 font-bold text-purple-100 md:py-4 md:px-8 text-sm md:text-lg whitespace-nowrap gap-4 items-center">
             <FileTextIcon/> View my Resume
           </Link>
-          <Link href="https://github.com/saboooor" class="flex justify-center sm:justify-start transition duration-200 rounded-2xl shadow-lg backdrop-blur-lg bg-gray-800 hover:bg-gray-700 border-2 border-gray-700 px-6 py-3 font-bold text-gray-100 md:py-4 md:px-8 text-sm md:text-lg whitespace-nowrap gap-4 items-center">
+          <Link href="https://github.com/saboooor" class="flex justify-center sm:justify-start transition rounded-2xl shadow-lg backdrop-blur-lg bg-gray-800 hover:bg-gray-700 border border-gray-700 px-6 py-3 font-bold text-gray-100 md:py-4 md:px-8 text-sm md:text-lg whitespace-nowrap gap-4 items-center">
             <GithubIcon/> Check out my GitHub profile
           </Link>
         </div>

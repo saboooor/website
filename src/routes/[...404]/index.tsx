@@ -7,7 +7,7 @@ export default component$(() => {
   return (
     <section class="flex mx-auto max-w-6xl px-6 items-center" style={{ minHeight: 'calc(100dvh - 64px)' }}>
       <div class="text-left space-y-5">
-        <div class="flex sm:hidden relative justify-start sm:ml-auto mb-5" style="width: 100%;">
+        <div class="flex relative justify-start mb-5" style="width: 100%;">
           <img class="rounded-2xl ease-in-out filter drop-shadow-2xl" src={`https://avatars.githubusercontent.com/u/42164502`} style={{ maxWidth: '50%' }} alt="sab's pfp" />
         </div>
         <h1 class="font-bold text-red-500 text-2xl sm:text-5xl">
@@ -17,7 +17,7 @@ export default component$(() => {
           Whoops! You've hit a dead-end. 
         </p>
         <div class="grid sm:flex gap-3 pt-4">
-          <Link href="/" class="flex justify-center sm:justify-start transition duration-200 rounded-2xl shadow-lg backdrop-blur-lg bg-purple-900/80 hover:bg-purple-900 border-2 border-purple-900 px-6 py-3 font-bold text-purple-100 md:py-4 md:px-8 text-sm md:text-lg whitespace-nowrap gap-4 items-center">
+          <Link href="/" class="flex justify-center sm:justify-start transition rounded-2xl shadow-lg backdrop-blur-lg bg-purple-900/80 hover:bg-purple-900 border border-purple-900 px-6 py-3 font-bold text-purple-100 md:py-4 md:px-8 text-sm md:text-lg whitespace-nowrap gap-4 items-center">
             <ChevronLeftIcon/> Go back home
           </Link>
         </div>
