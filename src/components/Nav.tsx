@@ -39,7 +39,7 @@ export default component$(() => {
           </button>
         </MainNav>
         <MobileNav>
-          <NavButton href="/resume" extraClass="hidden xl:flex gap-3">
+          <NavButton mobile href="/resume" extraClass="flex gap-3">
             <DocumentOutline width="24" class="fill-green-100" />
             Resume
           </NavButton>
