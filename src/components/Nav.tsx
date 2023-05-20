@@ -1,7 +1,7 @@
-import { component$, $, Slot } from '@builder.io/qwik';
+import { component$, Slot } from '@builder.io/qwik';
 import { Link, useLocation } from '@builder.io/qwik-city';
 
-import { LogoDiscord, LogoGithub, DocumentOutline, Menu, CafeOutline, LogoPaypal } from 'qwik-ionicons';
+import { LogoDiscord, LogoGithub, DocumentOutline, Menu, LogoPaypal } from 'qwik-ionicons';
 
 import Luminescent from './icons/Luminescent';
 import LoadingIcon from './icons/LoadingIcon';
